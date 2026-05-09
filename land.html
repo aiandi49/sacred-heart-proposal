@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sacred Heart Open Area — What's Possible</title>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -145,6 +146,22 @@ main { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 5rem; }
   transition: border-color .2s, transform .2s;
 }
 .video-card:hover { border-color: rgba(91,163,217,0.35); transform: translateY(-2px); }
+.video-card iframe { width: 100% !important; height: 220px !important; display: block; border: none; max-width: 100% !important; }
+.video-thumb-wrap { position: relative; }
+.play-btn-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.28);
+  transition: background .2s;
+}
+.video-card:hover .play-btn-overlay { background: rgba(0,0,0,0.45); }
+.play-btn {
+  width: 62px; height: 62px;
+  background: rgba(255,0,0,0.92); border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s;
+}
+.video-card:hover .play-btn { transform: scale(1.1); }
 .video-meta { padding: 12px 14px; }
 .video-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 .video-sub { font-size: 12px; color: var(--text3); }
@@ -266,48 +283,68 @@ footer p { font-size: 12px; color: var(--text3); margin-top: 2px; }
 
   <div class="video-grid">
     <div class="video-card">
-      <a href="https://youtu.be/UHVP4O_HL_4" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+      <div class="video-thumb-wrap" id="thumb-UHVP4O_HL_4" onclick="launchPlayer('UHVP4O_HL_4')" style="cursor:pointer;">
         <img src="https://img.youtube.com/vi/UHVP4O_HL_4/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Community Garden & Outdoor Classroom"/>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
-          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-          </div>
-        </div>
-      </a>
+        <div class="play-btn-overlay"><div class="play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div id="player-UHVP4O_HL_4" style="display:none;width:100%;height:220px;"></div>
       <div class="video-meta">
         <div class="video-title">🌿 Community Garden &amp; Outdoor Classroom</div>
         <div class="video-sub">Concept rendering — green space &amp; educational use</div>
       </div>
     </div>
     <div class="video-card">
-      <a href="https://youtu.be/wk1r4Re2lD4" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+      <div class="video-thumb-wrap" id="thumb-wk1r4Re2lD4" onclick="launchPlayer('wk1r4Re2lD4')" style="cursor:pointer;">
         <img src="https://img.youtube.com/vi/wk1r4Re2lD4/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Community Pavilion & Event Plaza"/>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
-          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-          </div>
-        </div>
-      </a>
+        <div class="play-btn-overlay"><div class="play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div id="player-wk1r4Re2lD4" style="display:none;width:100%;height:220px;"></div>
       <div class="video-meta">
         <div class="video-title">⛪ Community Pavilion &amp; Event Plaza</div>
         <div class="video-sub">Concept rendering — gathering space &amp; community hub</div>
       </div>
     </div>
     <div class="video-card">
-      <a href="https://youtu.be/Rx2EhOQsXSY" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+      <div class="video-thumb-wrap" id="thumb-Rx2EhOQsXSY" onclick="launchPlayer('Rx2EhOQsXSY')" style="cursor:pointer;">
         <img src="https://img.youtube.com/vi/Rx2EhOQsXSY/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Athletic Complex & Running Track"/>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
-          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-          </div>
-        </div>
-      </a>
+        <div class="play-btn-overlay"><div class="play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div id="player-Rx2EhOQsXSY" style="display:none;width:100%;height:220px;"></div>
       <div class="video-meta">
         <div class="video-title">🏟 Athletic Complex &amp; Running Track</div>
         <div class="video-sub">Concept rendering — sports &amp; recreation facility</div>
       </div>
     </div>
   </div>
+
+  <!-- YouTube IFrame API for reliable looping -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var ytPlayers = {};
+
+    function launchPlayer(videoId) {
+      document.getElementById('thumb-' + videoId).style.display = 'none';
+      document.getElementById('player-' + videoId).style.display = 'block';
+
+      ytPlayers[videoId] = new YT.Player('player-' + videoId, {
+        height: '220',
+        width: '100%',
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          rel: 0,
+          modestbranding: 1
+        },
+        events: {
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              event.target.playVideo();
+            }
+          }
+        }
+      });
+    }
+  </script>
 
   <div class="divider"><span>✦</span></div>
 
