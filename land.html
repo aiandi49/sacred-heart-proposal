@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sacred Heart Open Area — What's Possible</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg0: #080b0f;
+  --bg1: #0e1318;
+  --bg2: #141b22;
+  --border: rgba(255,255,255,0.06);
+  --border-hi: rgba(255,255,255,0.11);
+  --gold: #d4a843;
+  --gold-dim: #a07c28;
+  --sage: #4db891;
+  --blue: #5ba3d9;
+  --text: #eef2f6;
+  --text2: #8e9fae;
+  --text3: #4e6070;
+  --orange: #d4814a;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg0); color: var(--text); min-height: 100vh; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(8,11,15,0.95);
+  backdrop-filter: blur(12px);
+}
+.logo-wrap { display: flex; align-items: center; gap: 12px; }
+.logo-icon {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px; color: #000; letter-spacing: 1px;
+}
+.logo-text .name { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 3px; color: var(--text); }
+.logo-text .sub { font-size: 10px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.nav-right { font-size: 11px; color: var(--text3); font-family: 'DM Sans', sans-serif; }
+
+/* HERO */
+.hero {
+  position: relative; min-height: 60vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 5rem 2rem 3rem; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,168,67,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(77,184,145,0.05) 0%, transparent 55%),
+    linear-gradient(180deg, #080b0f 0%, #0a0e14 100%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+.hero-content { position: relative; z-index: 2; max-width: 780px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(77,184,145,0.08); border: 1px solid rgba(77,184,145,0.25);
+  color: var(--sage); font-size: 11px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 7px 18px; border-radius: 999px; margin-bottom: 1.75rem;
+  animation: softGlow 3s ease-in-out infinite;
+}
+@keyframes softGlow { 0%,100%{opacity:.7} 50%{opacity:1} }
+.hero-eyebrow {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: 1.1rem; color: var(--text2); margin-bottom: 0.6rem;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  letter-spacing: 5px; line-height: 0.92;
+  color: var(--text); margin-bottom: 1.25rem;
+}
+.hero-title span { color: var(--sage); }
+.hero-sub {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text2); line-height: 1.8; margin-bottom: 0;
+}
+
+/* MAIN */
+main { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+
+/* SECTION HEADER */
+.sec-head { margin-bottom: 1.5rem; }
+.sec-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem; letter-spacing: 4px; color: var(--text);
+}
+.sec-sub { font-size: 13px; color: var(--text3); margin-top: 4px; }
+
+/* DIVIDER */
+.divider { text-align: center; padding: 1.5rem 0; font-size: 1rem; color: var(--text3); letter-spacing: 8px; opacity: 0.4; }
+
+/* PROPERTY PHOTO */
+.photo-wrap {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid rgba(77,184,145,0.2); margin-bottom: 1.25rem;
+}
+.photo-wrap img { width: 100%; height: 420px; object-fit: cover; display: block; }
+.photo-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(8,11,15,0.92) 0%, transparent 100%);
+  padding: 2rem 1.75rem 1.5rem;
+}
+.photo-label {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 3px;
+  color: var(--sage); margin-bottom: 4px;
+}
+.photo-sub { font-size: 13px; color: var(--text2); font-style: italic; font-family: 'DM Serif Display', serif; }
+
+/* STAT ROW */
+.stat-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.stat-box {
+  flex: 1; min-width: 130px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem 1.25rem; text-align: center;
+}
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 2px; color: var(--sage); }
+.stat-label { font-size: 11px; color: var(--text3); margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* VIDEO GRID */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.video-card {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border); background: var(--bg2);
+  transition: border-color .2s, transform .2s;
+}
+.video-card:hover { border-color: rgba(91,163,217,0.35); transform: translateY(-2px); }
+.video-meta { padding: 12px 14px; }
+.video-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.video-sub { font-size: 12px; color: var(--text3); }
+
+/* USE GRID */
+.use-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.use-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.25rem; transition: all .2s;
+}
+.use-card:hover { border-color: rgba(77,184,145,0.3); transform: translateY(-1px); }
+.use-icon { font-size: 1.8rem; margin-bottom: 10px; }
+.use-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.use-desc { font-size: 12px; color: var(--text3); line-height: 1.5; }
+
+/* CTA CARD */
+.cta-card {
+  background: linear-gradient(135deg, rgba(212,168,67,0.06), rgba(77,184,145,0.04));
+  border: 1px solid rgba(212,168,67,0.2); border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem; text-align: center; margin-top: 0.5rem;
+}
+.cta-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 0.75rem; }
+.cta-text { font-size: 14px; color: var(--text2); line-height: 1.75; max-width: 600px; margin: 0 auto 1.5rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all .2s; border: none; text-decoration: none;
+}
+.btn-gold { background: linear-gradient(135deg, var(--gold), var(--orange)); color: #000; }
+.btn-gold:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,168,67,0.25); }
+
+/* FOOTER */
+footer {
+  background: var(--bg1); border-top: 1px solid var(--border);
+  padding: 2rem 3rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.ft-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--gold); }
+footer p { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.ft-cross { font-size: 1.5rem; color: var(--gold); opacity: 0.4; }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .hero { padding: 3.5rem 1.5rem 2.5rem; }
+  main { padding: 1.25rem 1rem 4rem; }
+  .photo-wrap img { height: 240px; }
+  footer { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-icon">JS</div>
+    <div class="logo-text">
+      <div class="name">JUST SOLUTIONS</div>
+      <div class="sub">Land Opportunity</div>
+    </div>
+  </div>
+  <div class="nav-right">Sacred Heart Open Area</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Sacred Heart — Tempe, Arizona</div>
+    <div class="hero-eyebrow">Open Area — Land Opportunity</div>
+    <h1 class="hero-title">WHAT'S<br/><span>POSSIBLE</span></h1>
+    <p class="hero-sub">A look at the open area adjacent to Sacred Heart — and the potential it holds for this community.</p>
+  </div>
+</section>
+
+<main>
+
+  <!-- PROPERTY PHOTO -->
+  <div class="sec-head">
+    <div class="sec-title">THE OPEN AREA</div>
+    <div class="sec-sub">Aerial view of the parcel — a rare opportunity in the heart of the community</div>
+  </div>
+
+  <div class="photo-wrap">
+    <img src="https://sacred-heart-proposal.vercel.app/aerial.jpg" onerror="this.style.display='none'" alt="Aerial view of the Sacred Heart open area"/>
+    <div class="photo-overlay">
+      <div class="photo-label">Sacred Heart Open Area</div>
+      <div class="photo-sub">Adjacent parcel — ready for development, partnership, or community use</div>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">PRIME</div>
+      <div class="stat-label">Location</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">OPEN</div>
+      <div class="stat-label">Ready to Develop</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">RARE</div>
+      <div class="stat-label">Community Parcel</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">NOW</div>
+      <div class="stat-label">Available</div>
+    </div>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- DRONE FOOTAGE -->
+  <div class="sec-head">
+    <div class="sec-title">DRONE FOOTAGE — WHAT'S POSSIBLE</div>
+    <div class="sec-sub">Three AI-rendered concept videos showing the land's potential</div>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <a href="https://youtu.be/UHVP4O_HL_4" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+        <img src="https://img.youtube.com/vi/UHVP4O_HL_4/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Community Garden & Outdoor Classroom"/>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
+          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+        </div>
+      </a>
+      <div class="video-meta">
+        <div class="video-title">🌿 Community Garden &amp; Outdoor Classroom</div>
+        <div class="video-sub">Concept rendering — green space &amp; educational use</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <a href="https://youtu.be/wk1r4Re2lD4" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+        <img src="https://img.youtube.com/vi/wk1r4Re2lD4/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Community Pavilion & Event Plaza"/>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
+          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+        </div>
+      </a>
+      <div class="video-meta">
+        <div class="video-title">⛪ Community Pavilion &amp; Event Plaza</div>
+        <div class="video-sub">Concept rendering — gathering space &amp; community hub</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <a href="https://youtu.be/Rx2EhOQsXSY" target="_blank" rel="noopener" style="display:block;position:relative;text-decoration:none;">
+        <img src="https://img.youtube.com/vi/Rx2EhOQsXSY/hqdefault.jpg" style="width:100%;height:220px;object-fit:cover;display:block;" alt="Athletic Complex & Running Track"/>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);">
+          <div style="width:62px;height:62px;background:rgba(255,0,0,0.92);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+        </div>
+      </a>
+      <div class="video-meta">
+        <div class="video-title">🏟 Athletic Complex &amp; Running Track</div>
+        <div class="video-sub">Concept rendering — sports &amp; recreation facility</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- POTENTIAL USES -->
+  <div class="sec-head">
+    <div class="sec-title">POTENTIAL USES</div>
+    <div class="sec-sub">A few of the many possibilities this parcel could serve</div>
+  </div>
+
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-icon">🌿</div>
+      <div class="use-title">Community Garden</div>
+      <div class="use-desc">Green space, outdoor classrooms, and gathering areas for families and youth.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">⛪</div>
+      <div class="use-title">Event Pavilion</div>
+      <div class="use-desc">A covered plaza for community events, markets, and faith gatherings.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🏟</div>
+      <div class="use-title">Athletic Complex</div>
+      <div class="use-desc">Running track, courts, and recreational facilities for all ages.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🏘</div>
+      <div class="use-title">Affordable Housing</div>
+      <div class="use-desc">Mixed-income residential development serving families in the community.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">🏥</div>
+      <div class="use-title">Community Clinic</div>
+      <div class="use-desc">Health and wellness services for underserved residents nearby.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-icon">📚</div>
+      <div class="use-title">Education Center</div>
+      <div class="use-desc">After-school programs, tutoring, and vocational training facilities.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <div class="cta-title">INTERESTED IN LEARNING MORE?</div>
+    <div class="cta-text">Just Solutions has prepared a full proposal for Sacred Heart — including a complimentary fundraiser offer, a named community fund, and a no-cost land marketing partnership. View the complete proposal to learn more.</div>
+    <a href="https://sacred-heart-proposal.vercel.app/" class="btn btn-gold" target="_blank">✦ View the Full Proposal</a>
+  </div>
+
+</main>
+
+<footer>
+  <div>
+    <div class="ft-brand">JUST SOLUTIONS</div>
+    <p>Prepared with respect for the Sisters of Sacred Heart</p>
+  </div>
+  <div class="ft-cross">✝</div>
+</footer>
+
+</body>
+</html>
